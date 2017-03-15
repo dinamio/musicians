@@ -5,6 +5,7 @@ import entity.Instrument;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
+import service.AreaService;
 import service.ArtistService;
 import service.BandService;
 
@@ -17,7 +18,9 @@ public class MusicMain {
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         ArtistService service = context.getBean(ArtistService.class);
         BandService bandService = context.getBean(BandService.class);
+        AreaService areaService = context.getBean(AreaService.class);
         bandService.findById(1);
+        areaService.findAll();
         service.printArtist();
     }
 

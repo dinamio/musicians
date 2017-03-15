@@ -1,13 +1,16 @@
 package config;
 
+import dao.AreaDao;
 import dao.BandDao;
 import dao.impl.BandDaoImpl;
+import dao.impl.AreaDaoImpl;
 import dao.impl.MongodbArtistDaoImpl;
 import dao.impl.MysqlArtistDaoImpl;
 import entity.Artist;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import service.AreaService;
 import service.ArtistService;
 import service.BandService;
 
@@ -49,5 +52,11 @@ public class AppConfig {
     public BandService bandService() {
         return new BandService();
     }
+
+    @Bean
+    public AreaDao areaDao() { return new AreaDaoImpl(); }
+
+    @Bean
+    public AreaService areaService() { return new AreaService(); }
 
 }
