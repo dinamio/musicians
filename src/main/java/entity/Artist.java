@@ -9,11 +9,20 @@ import java.util.List;
  */
 public class Artist {
 
+    private Integer id;
+
     private String name;
 
     private String surname;
 
+    public Artist() {
+    }
 
+    public Artist(String name, String surname) {
+        this.name = name;
+
+        this.surname = surname;
+    }
 
     private List<Instrument> instrumentList;
 
