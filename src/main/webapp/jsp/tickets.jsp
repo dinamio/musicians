@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Jenja
-  Date: 22.04.2017
-  Time: 13:18
+  Date: 24.05.2017
+  Time: 19:10
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -28,31 +28,31 @@
             background-color: #dddddd;
         }
     </style>
-    <title>Events</title>
+    <title>Ticket</title>
 </head>
 <body>
 <table>
     <tr>
-        <th>Имя</th>
-        <th>Возраст</th>
+        <th>Цена</th>
+        <th>Название события</th>
+        <th>Дата</th>
         <th>Действия</th>
     </tr>
-    <c:forEach items="${events}" var="event">
+    <c:forEach items="${tickets}" var="ticket">
         <tr>
-            <td>${event.name}</td>
-            <td>${event.date}</td>
+            <td>${ticket.price}</td>
+            <td>${ticket.event.name}</td>
+            <td>${ticket.event.date}</td>
             <td>
                 <ul>
-                    <li><a href="${pageContext.request.contextPath}/event/${event.id}">Показать</a></li>
-                    <li><a href="${pageContext.request.contextPath}/event/delete/${event.id}">Удалить</a></li>
-                    <li><a href="${pageContext.request.contextPath}/event/${event.id}/tickets">Билеты</a></li>
+                    <li><a href="${pageContext.request.contextPath}/ticket/${ticket.id}">Показать</a></li>
+                    <li><a href="${pageContext.request.contextPath}/ticket/delete/${ticket.id}">Удалить</a></li>
                 </ul>
             </td>
         </tr>
     </c:forEach>
 </table>
-<a href="${pageContext.request.contextPath}/event/new">Добавить событие</a>
-
+<a href="${pageContext.request.contextPath}/ticket/new">Добавить билет</a>
 
 </body>
 </html>
