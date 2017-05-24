@@ -19,6 +19,7 @@ public class TicketService {
         return ticketRepository.findOne(id);
     }
 
+    public List<Ticket> findByEvent(Integer id){return (List<Ticket>) ticketRepository.findTicketsByEventId(id); }
 
     public List<Ticket> findAll() {
         return (List<Ticket>) ticketRepository.findAll();

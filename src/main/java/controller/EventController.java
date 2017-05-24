@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import service.EventService;
+import service.TicketService;
 
 /**
  * Created by Jenja on 22.04.2017.
@@ -18,7 +19,8 @@ import service.EventService;
 public class EventController {
     @Autowired
     EventService eventService;
-
+    @Autowired
+    TicketService ticketService;
     @GetMapping
     public String getEvents(Model model) {
         model.addAttribute("events",eventService.findAll());
@@ -48,4 +50,11 @@ public class EventController {
         eventService.delete(id);
         return "redirect:/event";
     }
+
+    @GetMapping("/{id}/tickets")
+    public String getTickets(Model model,@PathVariable Integer id){
+       model.addAttribute("tickets",ticketService.findByEvent(id));
+       return "ticketByEvent";
+    }
+
 }
